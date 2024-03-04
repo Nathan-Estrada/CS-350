@@ -1,65 +1,19 @@
-## Example Summary
+# Written prompt for Project 2
 
-Application that toggles an LED(s) using a GPIO pin interrupt.
+## Summarize the project and what problem it was solving.
+For this project, I was to create software for a theoretical thermometer. The software is designed to run on a CC3220S launchpad. The requirements for this thermometer are to allow the user to set a desired temperature, and to have the user turn the heat "on" or "off". If the user pushes a GPIO button, the heat is set to on, incrementing the heat by 1 degree every second. When the heat is "ON", a red LED glows on the thermometer (Or in our case, the launchpad). Once the temperature reaches the user's desired temperature, the heat stops incrementing, and the LED is turned off. 
 
-## Peripherals & Pin Assignments
+## What did you do particularly well?
+I believe I did well in developing callback functions depending on which button was pressed, and utilizing a task scheduler to execute commands at various intervals of time. 
 
-When this project is built, the SysConfig tool will generate the TI-Driver
-configurations into the __ti_drivers_config.c__ and __ti_drivers_config.h__
-files. Information on pins and resources used is present in both generated
-files. Additionally, the System Configuration file (\*.syscfg) present in the
-project may be opened with SysConfig's graphical user interface to determine
-pins and resources used.
+## Where could you improve?
+I know I can improve in buiding more efficient task schedulers, and gain more confidnece in building state machines in tandem with task schedulers to produce code that seamlessly transitions from function to function depending on user input. 
 
-* `CONFIG_GPIO_LED_0` - Indicates that the board was initialized within
-`mainThread()` also toggled by `CONFIG_GPIO_BUTTON_0`
-* `CONFIG_GPIO_LED_1` - Toggled by `CONFIG_GPIO_BUTTON_1`
-* `CONFIG_GPIO_BUTTON_0` - Toggles `CONFIG_GPIO_LED_0`
-* `CONFIG_GPIO_BUTTON_1` - Toggles `CONFIG_GPIO_LED_1`
+## What tools and/or resources are you adding to your support network?
+While I have had experience with programming in C++, this was my first ttime developing in C. I found the website https://www.codeinsideout.com/ to be an excellent resource in helping me learn how to implement various algorithms in C. 
 
-## BoosterPacks, Board Resources & Jumper Settings
+## What skills from this project will be particularly transferable to other projects and/or course work?
+Prior to this class, I was not familiar with the utilization of task schedulers and state machines. Even working outside of embedded systems, I know that I can use such agorithms to produce more efficient and creative code in all kinds of applications. 
 
-For board specific jumper settings, resources and BoosterPack modifications,
-refer to the __Board.html__ file.
-
-> If you're using an IDE such as Code Composer Studio (CCS) or IAR, please
-refer to Board.html in your project directory for resources used and
-board-specific jumper settings.
-
-The Board.html can also be found in your SDK installation:
-
-        <SDK_INSTALL_DIR>/source/ti/boards/<BOARD>
-
-## Example Usage
-
-* Run the example. `CONFIG_GPIO_LED_0` turns ON to indicate driver
-initialization is complete.
-
-* `CONFIG_GPIO_LED_0` is toggled by pushing `CONFIG_GPIO_BUTTON_0`.
-* `CONFIG_GPIO_LED_1` is toggled by pushing `CONFIG_GPIO_BUTTON_1`.
-
-## Application Design Details
-
-* The `gpioButtonFxn0`/`gpioButtonFxn1` functions are configured in the driver configuration
-file. These functions are called in the context of the GPIO interrupt.
-
-* Not all boards have more than one button, so `CONFIG_GPIO_LED_1` may not be
-toggled.
-
-* There is no button de-bounce logic in the example.
-
-TI-RTOS:
-
-* When building in Code Composer Studio, the configuration project will be
-imported along with the example. These projects can be found under
-\<SDK_INSTALL_DIR>\/kernel/tirtos/builds/\<BOARD\>/(release|debug)/(ccs|gcc).
-The configuration project is referenced by the example, so it
-will be built first. The "release" configuration has many debug features
-disabled. These features include assert checking, logging and runtime stack
-checks. For a detailed difference between the "release" and "debug"
-configurations, please refer to the TI-RTOS Kernel User's Guide.
-
-FreeRTOS:
-
-* Please view the `FreeRTOSConfig.h` header file for example configuration
-information.
+## How did you make this project maintainable, readable, and adaptable?
+I made sure to have an easy-to-follow variable naming scheme, and followed proper indenting and line spacing best practices to ensure my code was clean and readable. Additionally, I provided detailed comments on blocks and lines of code that were the most critical to the code's functionality. 
